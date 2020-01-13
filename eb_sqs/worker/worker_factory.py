@@ -22,7 +22,7 @@ class WorkerFactory(object):
     def default():
         # type: () -> WorkerFactory
         if not settings.WORKER_FACTORY:
-            from eb_sqs.worker.sqs_worker_factory import SqsWorkerFactory
-            return SqsWorkerFactory()
+            from eb_sqs.worker.sqs_redis_worker_factory import SqsRedisWorkerFactory
+            return SqsRedisWorkerFactory()
         else:
             return settings.WORKER_FACTORY
